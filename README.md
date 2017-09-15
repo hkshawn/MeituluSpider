@@ -1,5 +1,4 @@
 # MeituluSpider
- =============
 
 > - 爬取美[图录网小清新](https://www.meitulu.com/t/qingxin/)美女图
 > - 放弃利用MD5命名方式去重，太丑没必要，使用作品名称加序号命名照片。
