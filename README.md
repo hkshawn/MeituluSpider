@@ -17,7 +17,7 @@ pip install -r requirements.txt
 ```
 
 ## 配置
-- qingxin可以替换成标签
+- qingxin可以替换成其他标签
 ```python
 url = 'https://www.meitulu.com/t/qingxin/' + str(page_num) + '.html'
 ```
