@@ -77,27 +77,27 @@ def main(page_num):
         pic_num = re.search('.*?(\d+?)]', filename)
         print('合集名称：', filename, 'URL:', result[0])
         if os.path.exists(filename) is False:
-            os.mkdir(os.path.dirname(os.path.abspath(__file__)) + '\\' + filename)
+            os.mkdir(os.path.dirname(os.path.abspath(__file__)) + '\\' + filename)  #linux用户需要将单引号里面的\\换成/即可
             for url_all in get_modelurls(result[0]):
                 for url_pic in parse_modelpage(get_modelpage(url_all)):
                     pic_name = re.search('.*?(第\d+张)', url_pic[0]).group(1)
                     file_path = (
                         os.path.dirname(
-                            os.path.abspath(__file__)) + '\\' + filename + '\\' + filename + pic_name + '.jpg')
+                            os.path.abspath(__file__)) + '\\' + filename + '\\' + filename + pic_name + '.jpg') #linux用户需要将单引号里面的\\换成/即可
                     if not os.path.exists(file_path):
                         content = requests.get(url_pic[1]).content
                         with open(file_path, 'wb') as f:
                             f.write(content)
                             print('正在下载：', url_pic[0])
 
-        if int(len([x for x in os.listdir(os.path.dirname(__file__) + '/' + filename)])) < int(
+        if int(len([x for x in os.listdir(os.path.dirname(__file__) + '/' + filename)])) < int( #如果linux用户执行提示没那个文件或者目录，请将”+ `/`“删掉
                 pic_num.group(1)) * 7 // 10:
             for url_all in get_modelurls(result[0]):
                 for url_pic in parse_modelpage(get_modelpage(url_all)):
                     pic_name = re.search('.*?(第\d+张)', url_pic[0]).group(1)
                     file_path = (
                         os.path.dirname(
-                            os.path.abspath(__file__)) + '\\' + filename + '\\' + filename + pic_name + '.jpg')
+                            os.path.abspath(__file__)) + '\\' + filename + '\\' + filename + pic_name + '.jpg') #linux用户需要将单引号里面的\\换成/即可
                     if not os.path.exists(file_path):
                         content = requests.get(url_pic[1]).content
                         with open(file_path, 'wb') as f:
